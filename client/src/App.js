@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/" element={<Calendar />} />
           <Route path="/journal" element={<Journal />} />
         </Routes>
         <Footer />

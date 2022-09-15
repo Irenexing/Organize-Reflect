@@ -1,18 +1,14 @@
-// function Calendar () {
-//     document.addEventListener('DOMContentLoaded', function() {
-//         let calendarEl = document.getElementById('calendar');
-//         let calendar = new FullCalendar.Calendar(calendarEl, {
-//           initialView: 'dayGridMonth'
-//         });
-//         calendar.render();
-//       });
-//     return (
-//         <>
-//   <body>
-//     <div id='calendar'></div>
-//   </body>
-//   </>
-//     )
-// }
+import React from 'react'
+import FullCalendar from '@fullcalendar/react' // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 
-// export default Calendar; 
+export default class DemoApp extends React.Component {
+  render() {
+    return (
+      <FullCalendar
+        plugins={[ dayGridPlugin ]}
+        initialView="dayGridMonth"
+      />
+    )
+  }
+}
