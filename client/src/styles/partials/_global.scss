@@ -1,0 +1,28 @@
+@use './colors'; 
+@use './typography';
+@use './variables'as*;
+@use './mixins'as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.font {
+    font-family: "AvenirNextLTPro";
+
+     &--bold {
+            font-weight: 700;
+    }
+
+     &--regular {
+            font-weight: 400;
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "AvenirNextLTPro";
+}
