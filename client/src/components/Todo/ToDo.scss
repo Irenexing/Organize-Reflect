@@ -1,0 +1,25 @@
+
+.todo {
+    font-family: "Notes";
+    font-size: 20px;
+    margin-top: 20px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 2px 10px #ddd;
+    &__button--complete {
+      color: lightgreen;
+      margin-right: 10px;
+    }
+    &__button--delete{
+      color: red;
+    }
+    &__button--edit {
+      color: rgb(62, 187, 241);
+      margin-right: 10px;
+    }
+  }
+  

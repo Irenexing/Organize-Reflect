@@ -2,13 +2,17 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
+import "./ToDo.scss"
+
 
 function ToDo ({
     todo, 
     toggleComplete,
     handleDelete,
     handleEdit,
+    onClose,
 }) {
+    //useState for storing todo title
     const [newTitle, setNewTitle] = useState(todo.title);
 
     const handleChange =(event) => {
@@ -22,26 +26,29 @@ function ToDo ({
     return (
         <div className="todo">
             <input 
+            //if todo is completed, there will be strike through text effect
             style ={{textDecoration: todo.completed && "line-through"}}
             type="text"
+            //show new title if it is empty
             value ={todo.title === "" ? newTitle : todo.title}
-            className="list"
+            className="todo__list"
             onChange={handleChange}
             /> 
         <div>
             <button 
-            className="button-complete"
+            className="todo__button--complete"
             onClick={() =>toggleComplete(todo)} >
                 <CheckCircleIcon id="i" /> 
             </button>
-            <button className="button-edit"
+            <button className="todo__button--edit"
             onClick={()=> handleEdit (todo,newTitle)}>
                 <EditIcon id="i" /> 
             </button>
-            <button className="button-delete"
-            onClick={()=> handleDelete (todo,id)}>
+            <button className="todo__button--delete"
+            onClick={()=> handleDelete (todo.id)}>
                 <DeleteIcon id="i" /> 
             </button>
+
         </div>
         </div>
     )
