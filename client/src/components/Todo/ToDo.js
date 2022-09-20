@@ -27,7 +27,6 @@ function ToDo ({
         <div className="todo">
             <input 
             //if todo is completed, there will be strike through text effect
-            style ={{textDecoration: todo.completed && "line-through"}}
             type="text"
             //show new title if it is empty
             value ={todo.title === "" ? newTitle : todo.title}
@@ -38,15 +37,15 @@ function ToDo ({
             <button 
             className="todo__button--complete"
             onClick={() =>toggleComplete(todo)} >
-                <CheckCircleIcon id="i" /> 
+                <CheckCircleIcon  /> 
             </button>
             <button className="todo__button--edit"
             onClick={()=> handleEdit (todo,newTitle)}>
-                <EditIcon id="i" /> 
+                <EditIcon /> 
             </button>
             <button className="todo__button--delete"
             onClick={()=> handleDelete (todo.id)}>
-                <DeleteIcon id="i" /> 
+                <DeleteIcon /> 
             </button>
 
         </div>

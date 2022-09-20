@@ -1,4 +1,4 @@
-import "./Calendar.scss"
+import "./Calendar.scss";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
@@ -24,7 +24,6 @@ import {
 } from "@chakra-ui/react";
 
 export default function Calendar() {
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
   const [todos, setTodos] = useState([]);
@@ -41,10 +40,10 @@ export default function Calendar() {
     const unsub = onSnapshot(q, (querySnapshot) => {
       let todosArray = [];
       querySnapshot.forEach((doc) => {
-    //push each todo to the temporary array
+        //push each todo to the temporary array
         todosArray.push({ ...doc.data(), id: doc.id });
       });
-    //update the todo state
+      //update the todo state
       setTodos(todosArray);
     });
     return () => unsub();
@@ -59,12 +58,12 @@ export default function Calendar() {
     event.preventDefault();
     // if it is not empty then store data in firebase
     if (title !== "") {
-    //data should be given as object
+      //data should be given as object
       addDoc(collection(db, "todos"), {
         title,
         completed: false,
       });
-    //after storing data, clear input
+      //after storing data, clear input
       setTitle("");
     }
   };
@@ -80,6 +79,7 @@ export default function Calendar() {
 
   return (
     <>
+    <div className="calendar">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
@@ -89,7 +89,7 @@ export default function Calendar() {
           { title: "event 2", date: "2019-04-02" },
         ]}
       />
-
+</div>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
@@ -97,37 +97,35 @@ export default function Calendar() {
         onClose={onClose}
       >
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>To-Do List</ModalHeader>
+        <ModalContent className="modal__container">
+          <ModalHeader className="modal__title">To-Do List</ModalHeader>
           <form onSubmit={handleSubmit}>
-            <label>Task</label>
+            <label className="modal__label">New Task</label>
             <input
               type="text"
               //use value to store to database
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               ref={initialRef}
-              placeholder="task"
+              placeholder="Add New Task"
+              className="modal__input"
             />
-            <div className="btn_container">
-              <button>Save</button>
-            </div>
+            <button className="modal__button">Add Task</button>
           </form>
+          {/* //display todo component and pass the props */}
+          <div className="todo__container">
+            {todos.map((todo) => (
+              <ToDo
+                key={todo.id}
+                todo={todo}
+                toggleComplete={toggleComplete}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+              />
+            ))}
+          </div>
         </ModalContent>
       </Modal>
-      {/* //display todo component and pass the props */}
-      <div className="todo_container">
-
-        {todos.map((todo) => (
-          <ToDo
-            key={todo.id}
-            todo={todo}
-            toggleComplete={toggleComplete}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-          />
-        ))}
-      </div>
     </>
   );
 }
