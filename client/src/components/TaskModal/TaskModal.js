@@ -1,4 +1,4 @@
-import "./Calendar.scss";
+import "./TaskModal.scss";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
@@ -23,7 +23,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-export default function Calendar() {
+export default function TaskModal() {
   const { isOpen, onOpen, onClose, onEventAdded } = useDisclosure();
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date());
@@ -53,7 +53,6 @@ export default function Calendar() {
   const handleDateClick = (arg) => {
     onOpen();
     console.log(arg);
-    setDate(arg.dateStr)
   };
  
   const handleSubmit = (event) => {
@@ -83,14 +82,6 @@ export default function Calendar() {
 
   return (
     <>
-      <div className="calendar">
-        <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin]}
-          initialView="dayGridMonth"
-          dateClick={handleDateClick}
-          events={todos}
-        />
-      </div>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}

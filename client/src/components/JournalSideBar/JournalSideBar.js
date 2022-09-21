@@ -1,5 +1,4 @@
 import "./JournalSideBar.scss";
-import { Link } from "react-router-dom";
 
 function JournalSideBar() {
   return (

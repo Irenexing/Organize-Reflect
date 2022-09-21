@@ -17,7 +17,7 @@ function App() {
         <JournalSideBar />
         <Routes>
           <Route path="/" element={<Calendar />} />
-          <Route path="/journal" element={<Journal />} />
+          <Route path="/journals" element={<Journal />} />
         </Routes>
         </div>
         <Footer />
