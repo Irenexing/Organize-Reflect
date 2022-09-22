@@ -3,10 +3,18 @@
 @use "../../styles/partials/colors";
 
 .quote {
+    background-color: colors.$purple;
+    padding: 1rem;
+    border-radius: 5px;
     &__quote {
         width: 100%;
-        background-color: colors.$purple;
         font-family: "Notes";
         font-weight: bold; 
+    }
+    &__author {
+        width: 100%;
+        font-family: "Notes";
+        display:flex;
+        justify-content: flex-end;
     }
 }

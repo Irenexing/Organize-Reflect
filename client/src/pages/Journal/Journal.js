@@ -9,19 +9,20 @@ import {
   addDoc,
 } from "firebase/firestore";
 import "./Journal.scss";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 function Journal () {
     const [notes, setNotes] = useState("");
     const [date, setDate] = useState("");
     const [title, setTitle] = useState("");
-    
+
     const handleSubmitJournal = (event) => {
         event.preventDefault();
         // if it is not empty then store data in firebase
         if (notes !== "") {
           //data should be given as object
           addDoc(collection(db, "journal"), {
+            title,
             date,
             notes,
           });
@@ -36,6 +37,14 @@ function Journal () {
               //use value to store to database
               value={title}
               onChange={(event) => setTitle(event.target.value)}
+              placeholder="Add New Title"
+              className="journal__title"
+            />
+            <input
+              type="date"
+              //use value to store to database
+              value={date}
+              onChange={(event) => setDate(event.target.value)}
               placeholder="Add New Title"
               className="journal__title"
             />

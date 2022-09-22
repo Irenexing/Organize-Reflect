@@ -14,6 +14,7 @@ import {
 } from "firebase/firestore";
 import { useState, useEffect, useRef } from "react";
 import ToDo from "../../components/Todo/ToDo";
+import { Link } from "react-router-dom";
 
 import {
   Modal,
@@ -24,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 
 export default function Calendar() {
-  const { isOpen, onOpen, onClose, onEventAdded } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date());
   const [todos, setTodos] = useState([]);
@@ -129,6 +130,9 @@ export default function Calendar() {
               )}
               
             })}
+          </div>
+          <div className="modal__button-container">
+          <Link to="/journals"><button className="modal__addbutton">Add Journal</button></Link>
           </div>
         </ModalContent>
       </Modal>

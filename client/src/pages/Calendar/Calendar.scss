@@ -24,6 +24,19 @@
         border-radius: 5px;
         padding: 0.5rem;
         margin-left: 1rem;
+        &-container  {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__addbutton {
+        background-color: colors.$pink;
+        color: white;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 150px;
+        margin-bottom: 1rem;
     }
 }
 .calendar {

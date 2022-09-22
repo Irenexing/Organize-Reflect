@@ -16,11 +16,13 @@ function Footer() {
         console.log(err);
       });
   }, []);
-  
+
   return (
     <>
-      <div className="quote__quote">{quote.q}</div>
-      <div className="quote__author">{quote.a}</div>
+    <div className="quote">
+      <div className="quote__quote">{quote[0]?.q}</div>
+      <div className="quote__author">- {quote[0]?.a}</div>
+      </div>
       </>
   );
 }
