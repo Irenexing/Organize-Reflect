@@ -8,6 +8,7 @@ import JournalSideBar from "./components/JournalSideBar/JournalSideBar"
 import "./App.scss"
 
 function App() {
+  
 
   return (
     <>

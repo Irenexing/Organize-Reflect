@@ -116,15 +116,19 @@ export default function Calendar() {
           </form>
           {/* //display todo component and pass the props */}
           <div className="todo__container">
-            {todos.map((todo) => (
-              <ToDo
+            {todos.map((todo) => {
+              if(todo.date===date){
+                return (
+                <ToDo
                 key={todo.id}
                 todo={todo}
                 toggleComplete={toggleComplete}
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}
-              />
-            ))}
+              /> 
+              )}
+              
+            })}
           </div>
         </ModalContent>
       </Modal>

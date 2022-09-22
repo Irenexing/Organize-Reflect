@@ -1,0 +1,12 @@
+@use "../../styles/partials/typography";
+@use "../../styles/partials/global.scss";
+@use "../../styles/partials/colors";
+
+.quote {
+    &__quote {
+        width: 100%;
+        background-color: colors.$purple;
+        font-family: "Notes";
+        font-weight: bold; 
+    }
+}

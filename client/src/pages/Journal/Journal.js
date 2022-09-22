@@ -30,6 +30,7 @@ function Journal () {
     return (
         <>
             <form className="journal__form" onSubmit={handleSubmitJournal}>
+            
             <input
               type="text"
               //use value to store to database
