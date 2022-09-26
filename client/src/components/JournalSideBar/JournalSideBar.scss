@@ -7,8 +7,16 @@
     height: 100vh;
     width: 20vw;
     font-family: "Notes";
-    &__title{
+    &__header{
     font-weight: bold;
     padding: 1rem;
+    }
+    &__list{
+        padding: 1rem;
+        border: 2px solid white;
+        border-radius: 20px;
+    }
+    &__title {
+        font-weight: bold;
     }
 }

@@ -1,0 +1,41 @@
+@use "../../styles/partials/typography";
+@use "../../styles/partials/global.scss";
+@use "../../styles/partials/colors";
+
+.journalId{
+    &__form { 
+       font-family: "Journal";
+       margin: 2rem;
+       display: flex;
+       flex-direction: column;
+    }
+    &__label {
+        font-size: 50px; 
+        font-weight: bold;
+    }
+    &__title {
+        font-size: 30px; 
+    }
+    &__input {
+        font-size: 30px; 
+        border: 10px dotted colors.$purple;
+        width: 80vw;
+        height: 50vh;
+        padding: 1rem;
+        text-align:start;
+    }
+    &__button {
+        background-color: colors.$pink;
+        color: white;
+        border-radius: 5px;
+        padding: 0.5rem;
+        font-size: 30px;
+        font-weight: bold;
+        width: 150px;
+        margin-top: 2rem;
+        &-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
