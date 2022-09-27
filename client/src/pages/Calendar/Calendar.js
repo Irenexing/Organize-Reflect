@@ -76,7 +76,7 @@ export default function Calendar() {
   };
 
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, "todos", todo.id), { completed: todo.completed });
+    await updateDoc(doc(db, "todos", todo.id), { completed: !todo.completed });
   };
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "todos", id));

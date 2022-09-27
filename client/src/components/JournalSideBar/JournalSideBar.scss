@@ -5,18 +5,35 @@
 .journalsidebar {
     background-color: rgb(238, 188, 216);
     height: 100vh;
-    width: 20vw;
+    width: 15vw;
     font-family: "Notes";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &__header{
     font-weight: bold;
     padding: 1rem;
     }
     &__list{
-        padding: 1rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem;
         border: 2px solid white;
         border-radius: 20px;
+        text-align: center;
     }
     &__title {
         font-weight: bold;
+    }
+    &__addbutton {
+        background-color: rgb(235, 176, 209);
+        color: black;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 120px;
+        margin-bottom: 1rem;
+        margin-top: 20px;
+        border: 2px solid white;
+        font-weight: bold;
+
     }
 }

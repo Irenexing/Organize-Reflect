@@ -23,7 +23,9 @@ function ToDo({ todo, toggleComplete, handleDelete, handleEdit }) {
       <input
         //if todo is completed, there will be strike through text effect
         type="text"
+        complete={todo.complete}
         //show new title if it is empty
+        style={{ textDecoration: todo.completed && "line-through" }}
         value={todo.title === "" ? newTitle : todo.title}
         className="todo__list"
         onChange={handleChange}

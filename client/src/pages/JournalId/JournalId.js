@@ -2,13 +2,8 @@ import { db } from "../../firebase";
 import {
   collection,
   getDocs,
-  setDoc,
   doc,
-  deleteDoc,
   updateDoc,
-  getDoc,
-  connectFirestoreEmulator,
-  query,
 } from "firebase/firestore";
 import "./JournalId.scss";
 import { useState, useEffect } from "react";

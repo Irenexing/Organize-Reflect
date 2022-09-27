@@ -5,11 +5,13 @@
 .todo {
     font-family: "Notes1";
     font-size: 20px;
-    margin: 20px;
     background: white;
     padding: 10px 20px;
     border-radius: 20px;
     display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     justify-content: space-between;
     align-items: center;
     box-shadow: 1px 2px 10px #ddd;
@@ -20,6 +22,7 @@
     &__button--complete {
       margin-right: 10px;
       text-decoration: line-through;
+      margin-top: 10px;
     }
     &__button--edit {
       margin-right: 10px;

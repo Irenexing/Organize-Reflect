@@ -5,13 +5,11 @@ import {
   getDocs,
   doc,
   deleteDoc,
-  updateDoc,
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useNavigate } from "react-router-dom";
 
 export default function JournalSideBar({ setEntryId }) {
   const [journalList, setJournalList] = useState([]);
@@ -28,7 +26,13 @@ export default function JournalSideBar({ setEntryId }) {
   }, []);
 
   const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "journal", id));
+    await deleteDoc(doc(db, "journal", id)).then((res) => {
+      const getJournalList = async () => {
+        const data = await getDocs(journalCollectionRef);
+        setJournalList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      };
+      getJournalList();
+    });
   };
 
   return (
@@ -60,6 +64,9 @@ export default function JournalSideBar({ setEntryId }) {
           );
         })}
       </div>
+      <Link to="/journals">
+        <button className="journalsidebar__addbutton">Add Journal</button>
+      </Link>
     </div>
   );
 }

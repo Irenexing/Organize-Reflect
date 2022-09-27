@@ -1,20 +1,18 @@
 import { db } from "../../firebase";
 import {
   collection,
-  query,
-  onSnapshot,
-  doc,
-  updateDoc,
-  deleteDoc,
+  getDocs,
   addDoc,
 } from "firebase/firestore";
 import "./Journal.scss";
 import { useState } from "react";
 
-function Journal () {
+function Journal ({ setJournalList }) {
     const [notes, setNotes] = useState("");
     const [date, setDate] = useState("");
     const [title, setTitle] = useState("");
+    //collection(database, collection name "journal" is the firebase collection name)
+    const journalCollectionRef = collection(db, "journal");
 
     const handleSubmitJournal = (event) => {
         event.preventDefault();
@@ -28,10 +26,10 @@ function Journal () {
           });
         }
       };
+
     return (
         <>
             <form className="journal__form" onSubmit={handleSubmitJournal}>
-            
             <input
               type="text"
               //use value to store to database
