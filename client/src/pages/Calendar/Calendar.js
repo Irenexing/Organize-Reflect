@@ -16,7 +16,6 @@ import {
 import { useState, useEffect, useRef } from "react";
 import ToDo from "../../components/Todo/ToDo";
 import { Link } from "react-router-dom";
-
 import {
   Modal,
   ModalOverlay,
@@ -24,7 +23,6 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@chakra-ui/react";
-
 export default function Calendar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
@@ -76,6 +74,7 @@ export default function Calendar() {
   const handleEdit = async (todo, title) => {
     await updateDoc(doc(db, "todos", todo.id), { title: title });
   };
+
   const toggleComplete = async (todo) => {
     await updateDoc(doc(db, "todos", todo.id), { completed: todo.completed });
   };

@@ -49,6 +49,7 @@ function ToDo({ todo, toggleComplete, handleDelete, handleEdit }) {
         </button>
       </div>
     </div>
+
   );
 }
 
