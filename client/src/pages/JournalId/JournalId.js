@@ -13,8 +13,9 @@ import {
 import "./JournalId.scss";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function JournalId() {
+function JournalId({ entryId }) {
   const [notes, setNotes] = useState("");
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
@@ -40,39 +41,13 @@ function JournalId() {
       setNotes(journalEntry[0].notes);
     };
     getJournalList();
-  }, []);
+  }, [entryId]);
 
-  //fetch data
-  // useEffect(() => {
-  //   const getJournalList = async () => {
-  //     const docRef = await doc(journalCollectionRef, journalId.journalsId);
-
-  //     const docSnap = await getDoc(docRef);
-
-  //     if (docSnap.exists()) {
-  //       setJournalEntry(docSnap.data());
-  //       setNewTitle(docSnap.data().title);
-  //       setNewDate(docSnap.data().date);
-  //       setNewNotes(docSnap.data().notes);
-  //     }
-  //   };
-  //   getJournalList();
-  // }, []);
-
-  // const handleEdit = async (todo, title) => {
-  //   await updateDoc(doc(db, "todos", todo.id), { title: title });
-  // };
-
-  useEffect(() => {
-    
-  }, []);
-  
+  const navigate = useNavigate();
   const handleEditJournal = async (e) => {
     e.preventDefault();
 
     try {
-      console.log("ENTERED TRY BLOCK LINE 79");
-      console.log(title);
       await updateDoc(doc(db, "journal", journalEntry[0].id), {
         title: title,
         date: date,
@@ -81,12 +56,8 @@ function JournalId() {
     } catch (error) {
       console.log(error);
     }
+    navigate("/");
   };
-
-  // const handleEditJournal = async (journals, title, date, notes) => {
-
-  // await updateDoc(doc(db, "journal", journals.id), { title: title }, { date:date }, { notes:notes });
-  //   };
 
   return (
     <>

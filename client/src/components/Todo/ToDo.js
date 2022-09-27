@@ -7,6 +7,7 @@ import "./ToDo.scss";
 function ToDo({ todo, toggleComplete, handleDelete, handleEdit }) {
   //useState for storing todo title
   const [newTitle, setNewTitle] = useState(todo.title);
+  const [complete, setComplete] = useState("")
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -21,7 +22,6 @@ function ToDo({ todo, toggleComplete, handleDelete, handleEdit }) {
     <div className="todo">
       <input
         //if todo is completed, there will be strike through text effect
-        style={{ textDecoration: todo.completed && "line-through" }}
         type="text"
         //show new title if it is empty
         value={todo.title === "" ? newTitle : todo.title}

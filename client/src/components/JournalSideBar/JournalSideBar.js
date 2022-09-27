@@ -11,12 +11,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
 
-export default function JournalSideBar() {
+export default function JournalSideBar({ setEntryId }) {
   const [journalList, setJournalList] = useState([]);
   //collection(database, collection name "journal" is the firebase collection name)
   const journalCollectionRef = collection(db, "journal");
-
 
   //fetch data
   useEffect(() => {
@@ -41,9 +41,14 @@ export default function JournalSideBar() {
               <div className="journalsidebar__list">
                 <div className="journalsidebar__title"> {journals.title} </div>
                 <div className="journalsidebar__date"> {journals.date} </div>
-                <Link to={journals.id}><button className="journal__button--edit">
-                  <EditIcon/>
-                </button></Link>
+                <Link to={journals.id}>
+                  <button
+                    className="journal__button--edit"
+                    onClick={() => setEntryId(journals.id)}
+                  >
+                    <EditIcon />
+                  </button>
+                </Link>
                 <button
                   className="journal__button--delete"
                   onClick={() => handleDelete(journals.id)}
