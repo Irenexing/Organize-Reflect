@@ -17,12 +17,17 @@
         font-size: 30px; 
     }
     &__input {
-        font-size: 30px; 
-        border: 10px dotted colors.$purple;
-        width: 80vw;
-        height: 50vh;
+        width: 100%;
+        padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+        margin: 0.9vw 0;
+        border: 0;
+        border-radius: 5px;
+        font-size: 30px;
         padding: 1rem;
-        text-align:start;
+        word-wrap: break-word;
+        text-align: start;
+        border: 10px dotted colors.$purple;
+        height: 60vh;
     }
     &__button {
         background-color: colors.$pink;

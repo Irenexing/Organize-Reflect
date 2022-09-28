@@ -46,14 +46,18 @@ function Journal ({ setJournalList }) {
               placeholder="Add New Title"
               className="journal__title"
             />
-            <input
+            <div className="journal__input-container">
+            <textarea
+              rows="5" 
+              cols="30"
               type="text"
               //use value to store to database
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
               placeholder="Add New Journal"
               className="journal__input"
-            />
+            ></textarea>
+            </div>
             <div className="journal__button-container">
             <button className="journal__button">Add Journal</button>
             </div>

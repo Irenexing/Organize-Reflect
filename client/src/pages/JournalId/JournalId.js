@@ -1,10 +1,5 @@
 import { db } from "../../firebase";
-import {
-  collection,
-  getDocs,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
+import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
 import "./JournalId.scss";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -73,7 +68,9 @@ function JournalId({ entryId }) {
           placeholder={date}
           className="journal__title"
         />
-        <input
+        <textarea
+          rows="5"
+          cols="30"
           type="text"
           //use value to store to database
           value={notes}
