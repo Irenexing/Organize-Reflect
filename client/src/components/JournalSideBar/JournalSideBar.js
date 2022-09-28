@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function JournalSideBar({ setEntryId }) {
+export default function JournalSideBar({ setEntryId, addToSide }) {
   const [journalList, setJournalList] = useState([]);
   //collection(database, collection name "journal" is the firebase collection name)
   const journalCollectionRef = collection(db, "journal");
@@ -23,7 +23,7 @@ export default function JournalSideBar({ setEntryId }) {
       setJournalList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getJournalList();
-  }, []);
+  }, [addToSide]);
 
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "journal", id)).then((res) => {
