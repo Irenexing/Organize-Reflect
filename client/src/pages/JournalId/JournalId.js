@@ -81,7 +81,6 @@ function JournalId({ entryId }) {
         <div className="journal__button-container">
           <button
             className="journal__button"
-            // onClick={() => handleEditJournal(journalEntry[0], title)}
           >
             Edit Journal
           </button>

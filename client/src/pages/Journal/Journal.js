@@ -6,13 +6,16 @@ import {
 } from "firebase/firestore";
 import "./Journal.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Journal ({ setJournalList }) {
+function Journal () {
     const [notes, setNotes] = useState("");
     const [date, setDate] = useState("");
     const [title, setTitle] = useState("");
+    const navigate = useNavigate();
     //collection(database, collection name "journal" is the firebase collection name)
     const journalCollectionRef = collection(db, "journal");
+
 
     const handleSubmitJournal = (event) => {
         event.preventDefault();
@@ -25,6 +28,7 @@ function Journal ({ setJournalList }) {
             notes,
           });
         }
+        navigate("/")
       };
 
     return (
@@ -46,7 +50,7 @@ function Journal ({ setJournalList }) {
               placeholder="Add New Title"
               className="journal__title"
             />
-            <div className="journal__input-container">
+
             <textarea
               rows="5" 
               cols="30"
@@ -57,7 +61,7 @@ function Journal ({ setJournalList }) {
               placeholder="Add New Journal"
               className="journal__input"
             ></textarea>
-            </div>
+
             <div className="journal__button-container">
             <button className="journal__button">Add Journal</button>
             </div>
